@@ -1,18 +1,21 @@
 import css from './ContactForm.module.css';
 import { NotificationManager } from 'react-notifications';
-// import { nanoid } from 'nanoid';
-import { RiContactsBook2Line } from 'react-icons/ri';
 
+import { RiContactsBook2Line } from 'react-icons/ri';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from '../../redux/services';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
+import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
+  const { data } = useGetContactsQuery();
+
+  const [addContact] = useAddContactMutation();
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(getContacts);
-  const dispatch = useDispatch();
 
   const handleChange = evt => {
     const { name, value } = evt.target;
@@ -27,16 +30,43 @@ export const ContactForm = () => {
         return;
     }
   };
+
+  // const handleSubmit = async evt => {
+  //   evt.preventDefault();
+
+  //   try {
+  //     const newContact = {
+  //       id: nanoid(),
+  //       name,
+  //       number,
+  //     };
+
+  //     const result = await addContact(newContact).unwrap();
+
+  //     console.log('Mutation success:', result);
+
+  //     setName('');
+  //     setNumber('');
+  //   } catch (error) {
+
+  //     console.error('Mutation error:', error);
+  //   }
+  // };
+
   const handleSubmit = evt => {
     evt.preventDefault();
-    const contactExists = contacts.some(
-      contact => contact.name.toLowerCase() === name.toLowerCase()
-    );
-    if (contactExists) {
-      NotificationManager.info(`${name} is already in contacts.`);
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    const contactExists = data.map(contact => contact.name.toLowerCase());
+    if (contactExists.includes(newContact.name.toLowerCase())) {
+      NotificationManager.info(`${newContact.name} is already in contacts.`);
       return;
     }
-    dispatch(addContact(name, number));
+    addContact(newContact);
     setName('');
     setNumber('');
   };
