@@ -10,7 +10,7 @@ import css from './App.module.css';
 import { useGetContactsQuery } from '../redux/services';
 
 export const App = () => {
-  const { error: fetchError, isLoading: isFetchLoading } = useGetContactsQuery;
+  const { error, isLoading } = useGetContactsQuery;
 
   return (
     <div className={css.wrapper}>
@@ -19,7 +19,7 @@ export const App = () => {
       <ContactForm />
       <SectionSubtitle subtitle="Contacts" />
       <ContactsFilter />
-      {isFetchLoading && !fetchError && <b>Request in progress...</b>}
+      {isLoading && !error && <b>Request in progress...</b>}
       <ContactsList />
     </div>
   );
