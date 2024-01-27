@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/RtkQuery-hw-07-phonebook/static/css/main.91c84be6.css",
-    "main.js": "/RtkQuery-hw-07-phonebook/static/js/main.ef4e3365.js",
+    "main.js": "/RtkQuery-hw-07-phonebook/static/js/main.0c87c5d6.js",
     "static/media/notification.svg?s3g3t9": "/RtkQuery-hw-07-phonebook/static/media/notification.5d0158671dd860c714c4.svg",
     "static/media/notification.eot": "/RtkQuery-hw-07-phonebook/static/media/notification.3657084dc0419605a91c.eot",
     "static/media/notification.woff?s3g3t9": "/RtkQuery-hw-07-phonebook/static/media/notification.c392cd33d9d9de730f9d.woff",
     "static/media/notification.ttf?s3g3t9": "/RtkQuery-hw-07-phonebook/static/media/notification.c5d9251ea82e42f75381.ttf",
     "index.html": "/RtkQuery-hw-07-phonebook/index.html",
     "main.91c84be6.css.map": "/RtkQuery-hw-07-phonebook/static/css/main.91c84be6.css.map",
-    "main.ef4e3365.js.map": "/RtkQuery-hw-07-phonebook/static/js/main.ef4e3365.js.map"
+    "main.0c87c5d6.js.map": "/RtkQuery-hw-07-phonebook/static/js/main.0c87c5d6.js.map"
   },
   "entrypoints": [
     "static/css/main.91c84be6.css",
-    "static/js/main.ef4e3365.js"
+    "static/js/main.0c87c5d6.js"
   ]
 }
