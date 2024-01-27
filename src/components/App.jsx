@@ -10,7 +10,7 @@ import css from './App.module.css';
 import { useGetContactsQuery } from '../redux/services';
 
 export const App = () => {
-  const { error, isLoading } = useGetContactsQuery;
+  const { error, isLoading } = useGetContactsQuery();
 
   return (
     <div className={css.wrapper}>

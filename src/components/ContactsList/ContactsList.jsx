@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 export const ContactsList = () => {
   const { data = [] } = useGetContactsQuery();
-  // console.log(data);
+
   const [deleteContact] = useDeleteContactMutation();
   const filter = useSelector(state => state.filter.filter);
 
